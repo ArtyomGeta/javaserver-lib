@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ServerAPI:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ServerAPI_jar</output-path>
+    <root id="archive" name="ServerAPI.jar">
+      <element id="module-output" name="ServerAPI" />
+    </root>
+  </artifact>
+</component>

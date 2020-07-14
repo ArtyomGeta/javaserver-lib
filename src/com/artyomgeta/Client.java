@@ -12,7 +12,7 @@ public class Client {
     private BufferedReader bufferedReader;
     private Server server;
 
-    public Client(Socket socket, Server server) {
+    private Client(Socket socket, Server server) {
         this.socket = socket;
         this.server = server;
     }

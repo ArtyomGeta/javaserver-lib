@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!--suppress HtmlUnknownTag -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geta Server</title>
+</head>
+<body>
+<div style="text-align: center; font-size: x-large">DOCUMENTATION FOR GETASERVER:</div>
+<hr><br>
+<div style="margin-left: 10pt;"><b>Using example:</b></div>
+<table style="margin: 10pt; border: 1pt solid black; padding: 10pt;" about="Using example:">
+<tr><td>
+    public class Main {<br>
+    <br>
+    public static void main(String[] args) {<br>
+    Server server = new Server();<br>
+    try {<br>
+    server.setPort(8070);<br>
+    } catch (IllegalAccessException e) {<br>
+    e.printStackTrace();<br>
+    }<br>
+    server.setServerListener(new ServerListener() {<br>
+    @Override<br>
+    public void onClientConnected(Client client) {<br>
+    System.out.println("Connected: " + client.getIp());<br>
+    }<br>
+    <br>
+    @Override<br>
+    public void onClientDisconnected(Client client) {<br>
+    System.out.println("Disconnected: " + client.getIp());<br>
+    }<br>
+    <br>
+    @Override<br>
+    public void onMessageReceived(Client client, String s) {<br>
+    System.out.println("Message from: " + client.getIp() + ": " + s);<br>
+    }<br>
+    });<br>
+    server.launch();<br>
+    }<br>
+    }<br>
+
+</td></tr>
+</table>
+<div style="margin-left: 10pt;"><b>Server.class:</b></div>
+<table style="margin: 10pt;" about="Using example:" border="1">
+    <tr>
+        <th>
+            Method name
+        </th>
+        <th>
+            Method type
+        </th>
+        <th>
+            Method description
+        </th>
+    </tr>
+    <tr>
+        <td>
+            setPort(int)
+        </td>
+        <td>
+            void
+        </td>
+        <td>
+            Specifies the server port. (Default: 8080)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            getPort()
+        </td>
+        <td>
+            int
+        </td>
+        <td>
+            Returns the server port.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            getClients()
+        </td>
+        <td>
+            List&lt;Client&gt;
+        </td>
+        <td>
+            Returns an ArrayList of all connected users.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            launch()
+        </td>
+        <td>
+            void
+        </td>
+        <td>
+            Opens the ServerSocket. It should be at the end, or in another thread.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            getServerSocket()
+        </td>
+        <td>
+            ServerSocket
+        </td>
+        <td>
+            Returns the ServerSocket.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            setServerListener(ServerListener)
+        </td>
+        <td>
+            void
+        </td>
+        <td>
+            Specifies and override the ServerListener, that listens to "onClientConnected", "onClientDisconnected", "onMessageReceived".
+        </td>
+    </tr>
+    <tr>
+        <td>
+            setStopMessage(String)
+        </td>
+        <td>
+            void
+        </td>
+        <td>
+            Sets a stop message, upon receipt of which, the server will disconnect the client. (Default: "null")
+        </td>
+    </tr>
+    <tr>
+        <td>
+            getStopMessage()
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Returns a stop message, upon receipt of which, the server will disconnect the client. (Default: "null")
+        </td>
+    </tr>
+    <tr>
+        <td>
+            stop()
+        </td>
+        <td>
+            void
+        </td>
+        <td>
+            Closes the ServerSocket and disconnect all connected clients.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            setMaximumClientsLength(int, boolean)
+        </td>
+        <td>
+            void
+        </td>
+        <td>
+            Sets the maximum number of users that can connect at the same time. The second parameter is responsible for throwing an exception if a user who has exceeded the maximum is connected.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            getMaximumClientsLength()
+        </td>
+        <td>
+            int
+        </td>
+        <td>
+            Returns the maximum number of users that can connect at the same time.
+        </td>
+    </tr>
+</table>
+
+<div style="margin-left: 10pt;"><b>Client.class:</b></div>
+<table style="margin: 10pt;" about="Using example:" border="1">
+    <tr>
+        <th>
+            Method name
+        </th>
+        <th>
+            Method type
+        </th>
+        <th>
+            Method description
+        </th>
+    </tr>
+    <tr>
+        <td>
+            print(String)
+        </td>
+        <td>
+            void
+        </td>
+        <td>
+            Prints the message to client.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            requireAnswer(String, boolean)
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Prints the message to client and wait for answer. The second parameter is responsible for call "onMessageReceived" listener after answer receiving.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            disconnect()
+        </td>
+        <td>
+            void
+        </td>
+        <td>
+            Disconnect the client.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            getSocket()
+        </td>
+        <td>
+            Socket
+        </td>
+        <td>
+            Returns the client Socket.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            getIP()
+        </td>
+        <td>
+            String
+        </td>
+        <td>
+            Returns the client IP-address.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            getPrintWriter()
+        </td>
+        <td>
+            PrintWriter
+        </td>
+        <td>
+            Returns client PrintWriter.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            getDataInputStream()
+        </td>
+        <td>
+            DataInputStream
+        </td>
+        <td>
+            Returns client DataInputStream.
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
