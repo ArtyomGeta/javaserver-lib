@@ -12,7 +12,7 @@ public class Client {
     private BufferedReader bufferedReader;
     private Server server;
 
-    private Client(Socket socket, Server server) {
+    Client(Socket socket, Server server) {
         this.socket = socket;
         this.server = server;
     }
@@ -39,11 +39,6 @@ public class Client {
                         //noinspection ConstantConditions
                         if (message.equals("null") || message == null)
                             break;
-                        String stopMessage = server.getStopMessage();
-                        if (stopMessage != null) {
-                            if (message.equals(stopMessage))
-                                break;
-                        }
                         server.onMessageReceived(this, message);
                     } catch (NullPointerException exception) {
                         break;
@@ -93,14 +88,6 @@ public class Client {
 
     public final Socket getSocket() {
         return socket;
-    }
-
-    public final PrintWriter getPrintWriter() {
-        return printWriter;
-    }
-
-    public final DataInputStream getDataInputStream() {
-        return dataInputStream;
     }
 
     public String getIp() {

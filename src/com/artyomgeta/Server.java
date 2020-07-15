@@ -79,14 +79,6 @@ public class Server {
         }
     }
 
-    public void setStopMessage(String message) {
-        this.stopMessage = message;
-    }
-
-    public String getStopMessage() {
-        return stopMessage;
-    }
-
     protected void onClientDisconnected(Client client) {
         if (this.listener != null) {
             this.listener.onClientDisconnected(client);
@@ -103,14 +95,8 @@ public class Server {
         working = false;
     }
 
-
     public void setMaximumClientsLength(int value) {
         maximum = value;
-    }
-
-    public void setMaximumClientsLength(int value, boolean throwsException) {
-        this.maximum = value;
-        this.throwsException = throwsException;
     }
 
     public int getMaximumClientsLength() {

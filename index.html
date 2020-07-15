@@ -7,40 +7,38 @@
 </head>
 <body>
 <div style="text-align: center; font-size: x-large">DOCUMENTATION FOR GETASERVER:</div>
-<hr><br>
+<hr>
+<div style="margin-left: 10pt; border: 0 solid red; padding: 10pt 10pt 10pt 0; text-align: center"><b>Download JAR: <a href="https://drive.google.com/file/d/17Wcy5HpTbYiTfIo6GZ7bB30k8vFu4ZG2/view?usp=sharing">Link (Google Drive)</a></b></div>
 <div style="margin-left: 10pt;"><b>Using example:</b></div>
 <table style="margin: 10pt; border: 1pt solid black; padding: 10pt;" about="Using example:">
-<tr><td>
-    public class Main {<br>
-    <br>
-    public static void main(String[] args) {<br>
-    Server server = new Server();<br>
-    try {<br>
-    server.setPort(8070);<br>
-    } catch (IllegalAccessException e) {<br>
-    e.printStackTrace();<br>
-    }<br>
-    server.setServerListener(new ServerListener() {<br>
-    @Override<br>
-    public void onClientConnected(Client client) {<br>
-    System.out.println("Connected: " + client.getIp());<br>
-    }<br>
-    <br>
-    @Override<br>
-    public void onClientDisconnected(Client client) {<br>
-    System.out.println("Disconnected: " + client.getIp());<br>
-    }<br>
-    <br>
-    @Override<br>
-    public void onMessageReceived(Client client, String s) {<br>
-    System.out.println("Message from: " + client.getIp() + ": " + s);<br>
-    }<br>
-    });<br>
-    server.launch();<br>
-    }<br>
-    }<br>
+    <tr><td><span style="color: blue; ">public class</span> Main {</td></tr>
+    <tr><td><span style="color: blue; ">public static void </span> main(String[] args) {</td></tr>
+    <tr><td>Server server = <span style="color: blue; ">new</span> Server();</td></tr>
+    <tr><td><span style="color: blue; ">try</span> {</td></tr>
+    <tr><td>server.setPort(8070);</td></tr>
+    <tr><td>} <span style="color: blue; ">catch</span> (IllegalAccessException e) {</td></tr>
+    <tr><td>e.printStackTrace();</td></tr>
+    <tr><td>}</td></tr>
+    <tr><td>server.setServerListener(<span style="color: blue; ">new</span> ServerListener() {</td></tr>
+    <tr><td><span style="color: orange; ">@Override</span></td></tr>
+    <tr><td><span style="color: blue; ">public void</span> onClientConnected(Client client) {</td></tr>
+    <tr><td>System.<span style="color: blue; ">out</span>.println("Connected: " + client.getIp());</td></tr>
+    <tr><td>}</td></tr>
+    <tr><td></td></tr>
+    <tr><td><span style="color: orange; ">@Override</span></td></tr>
+    <tr><td><span style="color: blue; ">public void</span> onClientDisconnected(Client client) {</td></tr>
+    <tr><td>System.<span style="color: blue; ">out</span>.println("Disconnected: " + client.getIp());</td></tr>
+    <tr><td>}</td></tr>
+    <tr><td></td></tr>
+    <tr><td><span style="color: orange; ">@Override</span></td></tr>
+    <tr><td><span style="color: blue; ">public void</span> onMessageReceived(Client client, String s) {</td></tr>
+    <tr><td>System.<span style="color: blue; ">out</span>.println("Message from: " + client.getIp() + ": " + s);</td></tr>
+    <tr><td>}</td></tr>
+    <tr><td>});</td></tr>
+    <tr><td>server.launch();</td></tr>
+    <tr><td>}</td></tr>
+    <tr><td>}</td></tr>
 
-</td></tr>
 </table>
 <div style="margin-left: 10pt;"><b>Server.class:</b></div>
 <table style="margin: 10pt;" about="Using example:" border="1">
@@ -96,7 +94,7 @@
             void
         </td>
         <td>
-            Opens the ServerSocket. It should be at the end, or in another thread.
+            Opens the ServerSocket.
         </td>
     </tr>
     <tr>
@@ -123,28 +121,6 @@
     </tr>
     <tr>
         <td>
-            setStopMessage(String)
-        </td>
-        <td>
-            void
-        </td>
-        <td>
-            Sets a stop message, upon receipt of which, the server will disconnect the client. (Default: "null")
-        </td>
-    </tr>
-    <tr>
-        <td>
-            getStopMessage()
-        </td>
-        <td>
-            String
-        </td>
-        <td>
-            Returns a stop message, upon receipt of which, the server will disconnect the client. (Default: "null")
-        </td>
-    </tr>
-    <tr>
-        <td>
             stop()
         </td>
         <td>
@@ -156,13 +132,13 @@
     </tr>
     <tr>
         <td>
-            setMaximumClientsLength(int, boolean)
+            setMaximumClientsLength(int)
         </td>
         <td>
             void
         </td>
         <td>
-            Sets the maximum number of users that can connect at the same time. The second parameter is responsible for throwing an exception if a user who has exceeded the maximum is connected.
+            Sets the maximum number of users that can connect at the same time.
         </td>
     </tr>
     <tr>
@@ -246,28 +222,24 @@
             Returns the client IP-address.
         </td>
     </tr>
-    <tr>
-        <td>
-            getPrintWriter()
-        </td>
-        <td>
-            PrintWriter
-        </td>
-        <td>
-            Returns client PrintWriter.
-        </td>
-    </tr>
-    <tr>
-        <td>
-            getDataInputStream()
-        </td>
-        <td>
-            DataInputStream
-        </td>
-        <td>
-            Returns client DataInputStream.
-        </td>
-    </tr>
+</table>
+<div style="margin-left: 10pt; margin-top: 15pt;"><b>Contact me:</b></div>
+<div style="margin-left: 10pt; margin-top: 10pt;">You can contact me on <a href="mailto:wideroller@protonmail.com">EMAIL</a>, <a href="https://www.facebook.com/profile.php?id=100015445748745">Facebook</a>, <a href="https://vk.com/artyom_geta">VK</a> </div>
+<div style="margin-left: 10pt; margin-top: 15pt"><b>LICENSE:</b></div>
+<table style="margin-left: 10pt; margin-top: 10pt; border: 2pt dashed black;" bgcolor="#d3d3d3">
+    <tr><td>Copyright 2020 Artyom Geta</td></tr>
+    <tr><td></td></tr>
+    <tr><td>Licensed under the Apache License, Version 2.0 (the "License");</td></tr>
+    <tr><td>you may not use this file except in compliance with the License.</td></tr>
+    <tr><td>You may obtain a copy of the License at</td></tr>
+    <tr><td></td></tr>
+    <tr><td><a href="/home/artyom/IdeaProjects/ServerAPI/index.html">http://www.apache.org/licenses/LICENSE-2.0</a></td></tr>
+    <tr><td></td></tr>
+    <tr><td>Unless required by applicable law or agreed to in writing, software</td></tr>
+    <tr><td>distributed under the License is distributed on an "AS IS" BASIS,</td></tr>
+    <tr><td>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</td></tr>
+    <tr><td>See the License for the specific language governing permissions and</td></tr>
+    <tr><td>limitations under the License.</td></tr>
 </table>
 
 </body>
