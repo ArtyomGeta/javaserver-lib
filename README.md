@@ -1,4 +1,4 @@
-# getaserver
+# javaserver-lib
 Java library for creating a multi-thread server.
 
 For documentation, click on the [link](https://artyomgeta.github.io/getaserver/)
