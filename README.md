@@ -1,7 +1,7 @@
 # javaserver-lib
 Java library for creating a multi-thread server.
 
-For documentation, click on the [link](https://artyomgeta.github.io/getaserver/)
+For documentation, click on the [link](https://artyomgeta.github.io/javaserver-lib/)
 
 For downloading JAR, click ont the [link](https://drive.google.com/file/d/17Wcy5HpTbYiTfIo6GZ7bB30k8vFu4ZG2/view?usp=sharing)
 
